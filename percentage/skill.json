@@ -1,0 +1,109 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "percentage calculator",
+            "intents": [
+                {
+                    "name": "AMAZON.FallbackIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
+                },
+                {
+                    "name": "PercentageIntent",
+                    "slots": [
+                        {
+                            "name": "number",
+                            "type": "AMAZON.NUMBER",
+                            "samples": [
+                                "the number is {number}",
+                                "{number}"
+                            ]
+                        },
+                        {
+                            "name": "percentage",
+                            "type": "AMAZON.NUMBER",
+                            "samples": [
+                                "{percentage}",
+                                "the percentage is {percentage}"
+                            ]
+                        }
+                    ],
+                    "samples": [
+                        "calculate {percentage} percent of {number}",
+                        "how much percent is {percentage} percent of {number}",
+                        "how much is {percentage} percent of {number}",
+                        "how much is {percentage} percent from {number}",
+                        "{percentage} percent of {number}",
+                        "what is {percentage} percent of {number}",
+                        "how much percent is {percentage} of {number}"
+                    ]
+                }
+            ],
+            "types": []
+        },
+        "dialog": {
+            "intents": [
+                {
+                    "name": "PercentageIntent",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "number",
+                            "type": "AMAZON.NUMBER",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.1326238954125.92450020900"
+                            }
+                        },
+                        {
+                            "name": "percentage",
+                            "type": "AMAZON.NUMBER",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.1326238954125.935488030351"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "prompts": [
+            {
+                "id": "Elicit.Slot.1326238954125.92450020900",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "please provide a number"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.1326238954125.935488030351",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "please provide a value for percentage"
+                    }
+                ]
+            }
+        ]
+    }
+}

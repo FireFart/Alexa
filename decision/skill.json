@@ -1,0 +1,58 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "security decision helper",
+            "intents": [
+                {
+                    "name": "AMAZON.FallbackIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
+                },
+                {
+                    "name": "DecisionIntent",
+                    "slots": [
+                        {
+                            "name": "message",
+                            "type": "AMAZON.SearchQuery"
+                        }
+                    ],
+                    "samples": [
+                        "ask the policy {message}",
+                        "to lookup {message}",
+                        "to give a suggestion {message}",
+                        "ask security decision helper what does the policy say {message}",
+                        "ask security decision helper what is your suggestion {message}",
+                        "ask security decision helper if it is allowed {message}",
+                        "what is your suggestion {message}",
+                        "if it is allowed {message}",
+                        "what do you think of {message}",
+                        "what do yout think about {message}",
+                        "is it possible to {message}",
+                        "if we can {message}",
+                        "can we implement {message}",
+                        "what is your suggestion for {message}",
+                        "can we {message}",
+                        "what does the policy say {message}",
+                        "is it allowed to {message}"
+                    ]
+                }
+            ],
+            "types": []
+        }
+    }
+}

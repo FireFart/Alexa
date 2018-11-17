@@ -1,0 +1,183 @@
+# -*- coding: utf-8 -*-
+
+import logging
+
+from ask_sdk_core.skill_builder import SkillBuilder
+from ask_sdk_core.dispatch_components import (
+    AbstractRequestHandler, AbstractExceptionHandler)
+from ask_sdk_core.utils import is_intent_name, is_request_type
+from ask_sdk_core.response_helper import get_plain_text_content
+from ask_sdk_model.interfaces.display.image_size import ImageSize
+from ask_sdk_model.interfaces.display import (
+    ImageInstance, Image, RenderTemplateDirective,
+    BackButtonBehavior, BodyTemplate2)
+
+# Skill Builder object
+sb = SkillBuilder()
+
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
+
+# https://xkcd.com/221/
+IMAGE_URL = "https://imgs.xkcd.com/comics/random_number.png"
+WELCOME_MESSAGE = "Welcome to random number generator."
+
+def supports_display(handler_input):
+    # type: (HandlerInput) -> bool
+    """Check if display is supported by the skill."""
+    try:
+        if hasattr(handler_input.request_envelope.context.system.device.supported_interfaces, 'display'):
+            return handler_input.request_envelope.context.system.device.supported_interfaces.display is not None
+    except Exception:
+        return False
+    return False
+
+# Request Handler classes
+class LaunchRequestHandler(AbstractRequestHandler):
+    """Handler for skill launch."""
+    def can_handle(self, handler_input):
+        # type: (HandlerInput) -> bool
+        return is_request_type("LaunchRequest")(handler_input)
+
+    def handle(self, handler_input):
+        # type: (HandlerInput) -> Response
+        logger.info("In LaunchRequestHandler")
+        handler_input.response_builder.speak(WELCOME_MESSAGE)
+        handler_input.response_builder.ask("Please ask your question.")
+        return handler_input.response_builder.response
+
+
+class AboutIntentHandler(AbstractRequestHandler):
+    """Handler for about intent."""
+    def can_handle(self, handler_input):
+        # type: (HandlerInput) -> bool
+        return is_intent_name("AboutIntent")(handler_input)
+
+    def handle(self, handler_input):
+        # type: (HandlerInput) -> Response
+        logger.info("In AboutIntentHandler")
+
+        handler_input.response_builder.speak("written by firefart")
+        return handler_input.response_builder.response
+
+
+class RandomIntentHandler(AbstractRequestHandler):
+    """Handler for lookup intent."""
+    def can_handle(self, handler_input):
+        # type: (HandlerInput) -> bool
+        return is_intent_name("RandomIntent")(handler_input)
+
+    def handle(self, handler_input):
+        # type: (HandlerInput) -> Response
+        logger.info("In RandomIntent")
+
+        response_builder = handler_input.response_builder
+
+        if supports_display(handler_input):
+            background_img = Image(sources=[ImageInstance(url=IMAGE_URL, size=ImageSize.MEDIUM)])
+            primary_text = get_plain_text_content(primary_text="copyright by xkcd https://xkcd.com/")
+
+            response_builder.add_directive(
+                RenderTemplateDirective(
+                    BodyTemplate2(
+                        token="Question",
+                        back_button=BackButtonBehavior.HIDDEN,
+                        #background_image=background_img,
+                        title="Random Number",
+                        image=background_img,
+                        text_content=primary_text)))
+
+        return response_builder.speak("4").response
+
+class SessionEndedRequestHandler(AbstractRequestHandler):
+    """Handler for skill session end."""
+    def can_handle(self, handler_input):
+        # type: (HandlerInput) -> bool
+        return is_request_type("SessionEndedRequest")(handler_input)
+
+    def handle(self, handler_input):
+        # type: (HandlerInput) -> Response
+        logger.info("In SessionEndedRequestHandler")
+        logger.info("Session ended with reason: %s", handler_input.request_envelope.request.reason)
+        return handler_input.response_builder.response
+
+
+class HelpIntentHandler(AbstractRequestHandler):
+    """Handler for help intent."""
+    def can_handle(self, handler_input):
+        # type: (HandlerInput) -> bool
+        return is_intent_name("AMAZON.HelpIntent")(handler_input)
+
+    def handle(self, handler_input):
+        # type: (HandlerInput) -> Response
+        logger.info("In HelpIntentHandler")
+
+        s = "Please ask a policy related question"
+        handler_input.response_builder.speak(s).ask(s)
+        return handler_input.response_builder.response
+
+
+class ExitIntentHandler(AbstractRequestHandler):
+    """Single Handler for Cancel, Stop intents."""
+    def can_handle(self, handler_input):
+        # type: (HandlerInput) -> bool
+        return (is_intent_name("AMAZON.CancelIntent")(handler_input) or
+                is_intent_name("AMAZON.StopIntent")(handler_input))
+
+    def handle(self, handler_input):
+        # type: (HandlerInput) -> Response
+        logger.info("In ExitIntentHandler")
+
+        handler_input.response_builder.set_should_end_session(True)
+        return handler_input.response_builder.response
+
+
+class FallbackIntentHandler(AbstractRequestHandler):
+    """Handler for handling fallback intent"""
+    def can_handle(self, handler_input):
+        # type: (HandlerInput) -> bool
+        return is_intent_name("AMAZON.FallbackIntent")(handler_input)
+
+    def handle(self, handler_input):
+        # type: (HandlerInput) -> Response
+        logger.info("In FallbackIntentHandler")
+
+        msg = "Could not handle that, please try again"
+        handler_input.response_builder.speak(msg).ask(msg)
+
+        return handler_input.response_builder.response
+
+
+# Exception Handler classes
+class CatchAllExceptionHandler(AbstractExceptionHandler):
+    """Catch All Exception handler.
+    This handler catches all kinds of exceptions and prints
+    the stack trace on AWS Cloudwatch with the request envelope."""
+    def can_handle(self, handler_input, exception):
+        # type: (HandlerInput, Exception) -> bool
+        return True
+
+    def handle(self, handler_input, exception):
+        # type: (HandlerInput, Exception) -> Response
+        logger.error(exception, exc_info=True)
+        logger.info("Original request was %s", handler_input.request_envelope.request)
+
+        speech = "Sorry, there was some problem. Please try again!!"
+        handler_input.response_builder.speak(speech).ask(speech)
+
+        return handler_input.response_builder.response
+
+# Add all request handlers to the skill.
+sb.add_request_handler(LaunchRequestHandler())
+sb.add_request_handler(AboutIntentHandler())
+sb.add_request_handler(RandomIntentHandler())
+sb.add_request_handler(HelpIntentHandler())
+sb.add_request_handler(FallbackIntentHandler())
+sb.add_request_handler(ExitIntentHandler())
+sb.add_request_handler(SessionEndedRequestHandler())
+
+# Add exception handler to the skill.
+sb.add_exception_handler(CatchAllExceptionHandler())
+
+# Expose the lambda handler to register in AWS Lambda.
+lambda_handler = sb.lambda_handler()
