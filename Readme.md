@@ -10,6 +10,11 @@ Sadly most of the examples are NodeJS based so feel free to take this repository
 
 [https://alexa-skills-kit-python-sdk.readthedocs.io/en/latest/](https://alexa-skills-kit-python-sdk.readthedocs.io/en/latest/)
 
+## Stuff used
+
+- Internationalisation (i18n)
+- Display Interface
+
 ## Decision Maker
 
 Helps with policy based decisions. Always returns no
