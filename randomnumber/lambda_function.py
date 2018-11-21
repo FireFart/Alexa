@@ -89,7 +89,7 @@ class RandomIntentHandler(AbstractRequestHandler):
                         image=background_img,
                         text_content=primary_text)))
 
-        return response_builder.speak("4").response
+        return response_builder.speak(_(data.ANSWER)).response
 
 class SessionEndedRequestHandler(AbstractRequestHandler):
     """Handler for skill session end."""
