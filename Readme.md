@@ -1,6 +1,14 @@
 # Alexa
 
-This repository contains some alexa skills for testing out the API
+This repository contains some alexa skills for playing around with some echos and see what's possible using skills.
+
+The skills are using the `Alexa Skills Kit SDK for Python` because I hate NodeJS and there is no golang SDK available yet.
+
+Sadly most of the examples are NodeJS based so feel free to take this repository as a reference for Python based skills and learn from it.
+
+## Python SDK
+
+[https://alexa-skills-kit-python-sdk.readthedocs.io/en/latest/](https://alexa-skills-kit-python-sdk.readthedocs.io/en/latest/)
 
 ## Decision Maker
 
