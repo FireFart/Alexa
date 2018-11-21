@@ -1,0 +1,46 @@
+{
+  "interactionModel": {
+      "languageModel": {
+          "invocationName": "entscheidungs hilfe",
+          "intents": [
+              {
+                  "name": "AMAZON.FallbackIntent",
+                  "samples": []
+              },
+              {
+                  "name": "AMAZON.CancelIntent",
+                  "samples": []
+              },
+              {
+                  "name": "AMAZON.HelpIntent",
+                  "samples": []
+              },
+              {
+                  "name": "AMAZON.StopIntent",
+                  "samples": []
+              },
+              {
+                  "name": "AMAZON.NavigateHomeIntent",
+                  "samples": []
+              },
+              {
+                  "name": "DecisionIntent",
+                  "slots": [
+                      {
+                          "name": "message",
+                          "type": "AMAZON.SearchQuery"
+                      }
+                  ],
+                  "samples": [
+                      "ob es erlaubt ist {message}",
+                      "ob ich {message} darf",
+                      "darf ich {message}",
+                      "was sagt die policy zu {message}",
+                      "ist es erlaubt {message}"
+                  ]
+              }
+          ],
+          "types": []
+      }
+  }
+}

@@ -1,0 +1,106 @@
+{
+  "interactionModel": {
+      "languageModel": {
+          "invocationName": "prozent rechner",
+          "intents": [
+              {
+                  "name": "AMAZON.FallbackIntent",
+                  "samples": []
+              },
+              {
+                  "name": "AMAZON.CancelIntent",
+                  "samples": []
+              },
+              {
+                  "name": "AMAZON.HelpIntent",
+                  "samples": []
+              },
+              {
+                  "name": "AMAZON.StopIntent",
+                  "samples": []
+              },
+              {
+                  "name": "AMAZON.NavigateHomeIntent",
+                  "samples": []
+              },
+              {
+                  "name": "PercentageIntent",
+                  "slots": [
+                      {
+                          "name": "number",
+                          "type": "AMAZON.NUMBER",
+                          "samples": [
+                              "die nummer ist {number}",
+                              "{number}"
+                          ]
+                      },
+                      {
+                          "name": "percentage",
+                          "type": "AMAZON.NUMBER",
+                          "samples": [
+                              "es sind {percentage} prozent",
+                              "{percentage} prozent",
+                              "{percentage}"
+                          ]
+                      }
+                  ],
+                  "samples": [
+                      "wieviel sind {percentage} prozent von {number}",
+                      "berechne {percentage} prozent von {number}",
+                      "wieviel ist {percentage} prozent von {number}"
+                  ]
+              }
+          ],
+          "types": []
+      },
+      "dialog": {
+          "intents": [
+              {
+                  "name": "PercentageIntent",
+                  "confirmationRequired": false,
+                  "prompts": {},
+                  "slots": [
+                      {
+                          "name": "number",
+                          "type": "AMAZON.NUMBER",
+                          "confirmationRequired": false,
+                          "elicitationRequired": true,
+                          "prompts": {
+                              "elicitation": "Elicit.Slot.180175167412.125944051459"
+                          }
+                      },
+                      {
+                          "name": "percentage",
+                          "type": "AMAZON.NUMBER",
+                          "confirmationRequired": false,
+                          "elicitationRequired": true,
+                          "prompts": {
+                              "elicitation": "Elicit.Slot.180175167412.703352569813"
+                          }
+                      }
+                  ]
+              }
+          ]
+      },
+      "prompts": [
+          {
+              "id": "Elicit.Slot.180175167412.125944051459",
+              "variations": [
+                  {
+                      "type": "PlainText",
+                      "value": "bitte sagen sie eine nummer"
+                  }
+              ]
+          },
+          {
+              "id": "Elicit.Slot.180175167412.703352569813",
+              "variations": [
+                  {
+                      "type": "PlainText",
+                      "value": "bitte sagen sie die prozent"
+                  }
+              ]
+          }
+      ]
+  }
+}

@@ -1,0 +1,54 @@
+# German (Germany) translations for PROJECT.
+# Copyright (C) 2018 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2018.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2018-11-21 15:11+0100\n"
+"PO-Revision-Date: 2018-11-21 14:05+0100\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: de_DE\n"
+"Language-Team: de_DE <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: data.py:5
+msgid "Welcome to random number generator."
+msgstr "Herzlich willkommen beim Zufallszahl Generator."
+
+#: data.py:6
+msgid "Please ask your question."
+msgstr "Bitte stellen sie ihre Frage."
+
+#: data.py:7
+msgid "copyright by firefart"
+msgstr "copyright by firefart"
+
+#: data.py:8
+msgid "Please request a random number"
+msgstr "Bitte fragen sie nach einer zufallszahl."
+
+#: data.py:9
+msgid "Sorry, there was some problem. Please try again."
+msgstr "Entschulding es ist ein Fehler aufgetreten."
+
+#: data.py:10
+msgid "Sorry, I don't know how to interpret that. Please try again."
+msgstr ""
+"Entschulding, diesen Befehl kenne ich nicht. Bitte probieren sie es "
+"erneut."
+
+#: data.py:15
+msgid "copyright by xkcd https://xkcd.com/"
+msgstr "copyright by xkcd https://xkcd.com/"
+
+#: data.py:16
+msgid "Random Number"
+msgstr "Zufallszahl"
+

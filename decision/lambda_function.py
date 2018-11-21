@@ -1,19 +1,21 @@
 # -*- coding: utf-8 -*-
 
 import logging
+import gettext
 
 from ask_sdk_core.skill_builder import SkillBuilder
 from ask_sdk_core.dispatch_components import (
-    AbstractRequestHandler, AbstractExceptionHandler)
+    AbstractRequestHandler, AbstractExceptionHandler,
+    AbstractRequestInterceptor)
 from ask_sdk_core.utils import is_intent_name, is_request_type
+
+import data
 
 # Skill Builder object
 sb = SkillBuilder()
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
-
-WELCOME_MESSAGE = "Welcome to decision maker. Please ask your question."
 
 # Request Handler classes
 class LaunchRequestHandler(AbstractRequestHandler):
@@ -25,8 +27,9 @@ class LaunchRequestHandler(AbstractRequestHandler):
     def handle(self, handler_input):
         # type: (HandlerInput) -> Response
         logger.info("In LaunchRequestHandler")
-        handler_input.response_builder.speak(WELCOME_MESSAGE)
-        handler_input.response_builder.ask("Please ask your question.")
+        _ = handler_input.attributes_manager.request_attributes["_"]
+        handler_input.response_builder.speak(_(data.WELCOME_MESSAGE))
+        handler_input.response_builder.ask(_(data.WELCOME_RETRY))
         return handler_input.response_builder.response
 
 
@@ -39,8 +42,9 @@ class AboutIntentHandler(AbstractRequestHandler):
     def handle(self, handler_input):
         # type: (HandlerInput) -> Response
         logger.info("In AboutIntentHandler")
+        _ = handler_input.attributes_manager.request_attributes["_"]
 
-        handler_input.response_builder.speak("written by firefart")
+        handler_input.response_builder.speak(_(data.COPYRIGHT))
         return handler_input.response_builder.response
 
 
@@ -53,10 +57,9 @@ class DecisionIntentHandler(AbstractRequestHandler):
     def handle(self, handler_input):
         # type: (HandlerInput) -> Response
         logger.info("In DecisionIntent")
+        _ = handler_input.attributes_manager.request_attributes["_"]
 
-        speech = "No!"
-
-        handler_input.response_builder.speak(speech)
+        handler_input.response_builder.speak(_(data.ANSWER))
         return handler_input.response_builder.response
 
 class SessionEndedRequestHandler(AbstractRequestHandler):
@@ -81,9 +84,9 @@ class HelpIntentHandler(AbstractRequestHandler):
     def handle(self, handler_input):
         # type: (HandlerInput) -> Response
         logger.info("In HelpIntentHandler")
+        _ = handler_input.attributes_manager.request_attributes["_"]
 
-        s = "Please ask a policy related question"
-        handler_input.response_builder.speak(s).ask(s)
+        handler_input.response_builder.speak(_(data.HELP_MESSAGE)).ask(_(data.HELP_MESSAGE))
         return handler_input.response_builder.response
 
 
@@ -111,9 +114,9 @@ class FallbackIntentHandler(AbstractRequestHandler):
     def handle(self, handler_input):
         # type: (HandlerInput) -> Response
         logger.info("In FallbackIntentHandler")
+        _ = handler_input.attributes_manager.request_attributes["_"]
 
-        msg = "Could not handle that, please try again"
-        handler_input.response_builder.speak(msg).ask(msg)
+        handler_input.response_builder.speak(_(data.FALLBACK_MESSAGE)).ask(_(data.FALLBACK_MESSAGE))
 
         return handler_input.response_builder.response
 
@@ -131,11 +134,22 @@ class CatchAllExceptionHandler(AbstractExceptionHandler):
         # type: (HandlerInput, Exception) -> Response
         logger.error(exception, exc_info=True)
         logger.info("Original request was %s", handler_input.request_envelope.request)
+        _ = handler_input.attributes_manager.request_attributes["_"]
 
-        speech = "Sorry, there was some problem. Please try again!!"
-        handler_input.response_builder.speak(speech).ask(speech)
+        handler_input.response_builder.speak(_(data.EXCEPTION_MESSAGE)).ask(_(data.EXCEPTION_MESSAGE))
 
         return handler_input.response_builder.response
+
+
+class LocalizationInterceptor(AbstractRequestInterceptor):
+    def process(self, handler_input):
+        # type: (HandlerInput) -> None
+        locale = handler_input.request_envelope.request.locale
+        logger.info("Locale is %s", locale)
+        i18n = gettext.translation(
+            'messages', localedir='locales', languages=[locale.replace("-", "_")], fallback=True)
+        handler_input.attributes_manager.request_attributes["_"] = i18n.gettext
+
 
 # Add all request handlers to the skill.
 sb.add_request_handler(LaunchRequestHandler())
@@ -148,6 +162,9 @@ sb.add_request_handler(SessionEndedRequestHandler())
 
 # Add exception handler to the skill.
 sb.add_exception_handler(CatchAllExceptionHandler())
+
+# Localization
+sb.add_global_request_interceptor(LocalizationInterceptor())
 
 # Expose the lambda handler to register in AWS Lambda.
 lambda_handler = sb.lambda_handler()

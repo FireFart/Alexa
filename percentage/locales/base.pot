@@ -1,0 +1,47 @@
+# Translations template for PROJECT.
+# Copyright (C) 2018 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2018.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2018-11-21 15:53+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: data.py:5
+msgid "Welcome to percentage calculator."
+msgstr ""
+
+#: data.py:6
+msgid "Please ask your question."
+msgstr ""
+
+#: data.py:7
+msgid "copyright by firefart"
+msgstr ""
+
+#: data.py:8
+msgid "Please ask to calculate percent from a certain number"
+msgstr ""
+
+#: data.py:9
+msgid "Sorry, there was some problem. Please try again."
+msgstr ""
+
+#: data.py:10
+msgid "Sorry, I don't know how to interpret that. Please try again."
+msgstr ""
+
+#: data.py:13
+msgid "{} percent of {} is {}"
+msgstr ""
+
