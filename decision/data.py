@@ -11,4 +11,4 @@ FALLBACK_MESSAGE = _("Sorry, I don't know how to interpret that. Please try agai
 
 # specific
 
-ANSWER = "No!"
+ANSWER = _("No!")
