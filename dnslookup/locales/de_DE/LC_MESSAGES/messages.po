@@ -20,7 +20,7 @@ msgstr ""
 
 #: data.py:5
 msgid "Welcome to d. n. s. lookup. Please define your query."
-msgstr ""
+msgstr "Herzlich willkommen bei D. N. S. lookup."
 
 #: data.py:6
 msgid "Please ask your question."
