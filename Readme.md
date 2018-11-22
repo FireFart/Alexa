@@ -29,4 +29,4 @@ Calculates percent from a given number
 
 ## Random Number Generator
 
-Generates a random number. Always returns 4 (https://xkcd.com/221/)
+Generates a random number. Always returns 4 ([https://xkcd.com/221/](https://xkcd.com/221/))

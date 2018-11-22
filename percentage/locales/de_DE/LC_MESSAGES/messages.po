@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-11-21 15:55+0100\n"
+"POT-Creation-Date: 2018-11-22 17:23+0100\n"
 "PO-Revision-Date: 2018-11-21 15:51+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de_DE\n"
@@ -24,7 +24,7 @@ msgstr "Herzlich willkommen beim Prozent Rechner."
 
 #: data.py:6
 msgid "Please ask your question."
-msgstr "Bitte stellen sie ihre Frage."
+msgstr "Bitte fragen sie wieviele Prozent einer Nummer ich berechnen soll"
 
 #: data.py:7
 msgid "copyright by firefart"
@@ -32,7 +32,7 @@ msgstr "copyright by firefart"
 
 #: data.py:8
 msgid "Please ask to calculate percent from a certain number"
-msgstr "Bitte stellen sie ihre Frage."
+msgstr "Bitte fragen sie wieviele Prozent einer Nummer ich berechnen soll"
 
 #: data.py:9
 msgid "Sorry, there was some problem. Please try again."

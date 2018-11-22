@@ -179,6 +179,13 @@ class LocalizationInterceptor(AbstractRequestInterceptor):
             'messages', localedir='locales', languages=[locale.replace("-", "_")], fallback=True)
         handler_input.attributes_manager.request_attributes["_"] = i18n.gettext
 
+
+class LoggingInterceptor(AbstractRequestInterceptor):
+    def process(self, handler_input):
+        # type: (HandlerInput) -> None
+        logger.info("Request received: %s", handler_input.request_envelope.request)
+
+
 # Add all request handlers to the skill.
 sb.add_request_handler(LaunchRequestHandler())
 sb.add_request_handler(AboutIntentHandler())
@@ -193,6 +200,8 @@ sb.add_exception_handler(CatchAllExceptionHandler())
 
 # Localization
 sb.add_global_request_interceptor(LocalizationInterceptor())
+# Logging
+sb.add_global_request_interceptor(LoggingInterceptor())
 
 # Expose the lambda handler to register in AWS Lambda.
 lambda_handler = sb.lambda_handler()
