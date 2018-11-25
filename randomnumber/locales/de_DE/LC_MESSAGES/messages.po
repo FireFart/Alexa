@@ -32,7 +32,7 @@ msgstr "copyright by firefart"
 
 #: data.py:8
 msgid "Please request a random number"
-msgstr "Bitte fragen sie nach einer zufallszahl."
+msgstr "Bitte fragen sie nach einer Zufallszahl. Sagen sie zum Beispiel: Alexa, generiere mir eine zufällige Zahl."
 
 #: data.py:9
 msgid "Sorry, there was some problem. Please try again."

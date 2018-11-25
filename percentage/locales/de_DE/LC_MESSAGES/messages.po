@@ -32,7 +32,7 @@ msgstr "copyright by firefart"
 
 #: data.py:8
 msgid "Please ask to calculate percent from a certain number"
-msgstr "Bitte fragen sie wieviele Prozent einer Nummer ich berechnen soll"
+msgstr "Bitte fragen sie wieviele Prozent einer Nummer ich berechnen soll. Fragen sie zum Beispiel: wieviel ist 50 prozent von 100?"
 
 #: data.py:9
 msgid "Sorry, there was some problem. Please try again."

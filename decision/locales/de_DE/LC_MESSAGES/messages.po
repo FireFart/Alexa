@@ -32,7 +32,7 @@ msgstr "copyright by firefart"
 
 #: data.py:8
 msgid "Please ask a policy related question"
-msgstr "Welche Frage darf ich ihnen beantworten?"
+msgstr "Welche Frage darf ich ihnen beantworten? Fragen sie zum Beispiel: Alexa, was sagt die policy zu USB-Sticks?"
 
 #: data.py:9
 msgid "Sorry, there was some problem. Please try again."
