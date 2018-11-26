@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-11-25 19:46+0100\n"
+"POT-Creation-Date: 2018-11-26 17:20+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -42,7 +42,7 @@ msgid "Sorry, I don't know how to interpret that. Please try again."
 msgstr ""
 
 #: data.py:15
-msgid "copyright by xkcd https://xkcd.com/"
+msgid "images copyright by xkcd https://xkcd.com/"
 msgstr ""
 
 #: data.py:16

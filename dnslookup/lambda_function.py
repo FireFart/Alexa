@@ -29,9 +29,7 @@ class LaunchRequestHandler(AbstractRequestHandler):
         # type: (HandlerInput) -> Response
         logger.info("In LaunchRequestHandler")
         _ = handler_input.attributes_manager.request_attributes["_"]
-        handler_input.response_builder.speak(_(data.WELCOME_MESSAGE))
-        handler_input.response_builder.ask(_(data.WELCOME_RETRY))
-        return handler_input.response_builder.response
+        return handler_input.response_builder.speak(_(data.WELCOME_MESSAGE)).ask(_(data.WELCOME_RETRY)).response
 
 
 class AboutIntentHandler(AbstractRequestHandler):
@@ -84,7 +82,7 @@ class LookupIntentHandler(AbstractRequestHandler):
         else:
             raise ValueError("no valid slot given")
 
-        handler_input.response_builder.speak(speech).ask(speech)
+        handler_input.response_builder.speak(speech).set_should_end_session(True)
         return handler_input.response_builder.response
 
 class SessionEndedRequestHandler(AbstractRequestHandler):

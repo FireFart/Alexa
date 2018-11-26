@@ -36,6 +36,9 @@
                         }
                     ],
                     "samples": [
+                        "ask d. n. s. lookup to give me the hostname of {ip}",
+                        "ask d. n. s. lookup what's the hostname of {ip}",
+                        "ask d. n. s. lookup to give me the i. p. of {dns}",
                         "what's the reverse d.n.s lookup of {ip}",
                         "reverse d.n.s lookup of {ip}",
                         "reverse lookup of {ip}",

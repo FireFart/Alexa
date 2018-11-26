@@ -1,52 +1,52 @@
 {
-  "interactionModel": {
-      "languageModel": {
-          "invocationName": "d. n. s.",
-          "intents": [
-              {
-                  "name": "AMAZON.FallbackIntent",
-                  "samples": []
-              },
-              {
-                  "name": "AMAZON.CancelIntent",
-                  "samples": []
-              },
-              {
-                  "name": "AMAZON.HelpIntent",
-                  "samples": []
-              },
-              {
-                  "name": "AMAZON.StopIntent",
-                  "samples": []
-              },
-              {
-                  "name": "AMAZON.NavigateHomeIntent",
-                  "samples": []
-              },
-              {
-                  "name": "LookupIntent",
-                  "slots": [
-                      {
-                          "name": "dns",
-                          "type": "AMAZON.SearchQuery"
-                      },
-                      {
-                          "name": "ip",
-                          "type": "AMAZON.SearchQuery"
-                      }
-                  ],
-                  "samples": [
-                      "welchen namen hat die i. p. {ip}",
-                      "welchen hostnamen hat die i. p. {ip}",
-                      "mach einen reverse lookup von {ip}",
-                      "gib mir den namen von der i. p. {ip}",
-                      "gib mir die i. p. adresse von {dns}",
-                      "was ist die i. p. adresse von {dns}",
-                      "löse {dns} auf"
-                  ]
-              }
-          ],
-          "types": []
-      }
-  }
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "d. n. s.",
+            "intents": [
+                {
+                    "name": "AMAZON.FallbackIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
+                },
+                {
+                    "name": "LookupIntent",
+                    "slots": [
+                        {
+                            "name": "dns",
+                            "type": "AMAZON.SearchQuery"
+                        },
+                        {
+                            "name": "ip",
+                            "type": "AMAZON.SearchQuery"
+                        }
+                    ],
+                    "samples": [
+                        "welchen namen hat die i. p. {ip}",
+                        "welchen hostnamen hat die i. p. {ip}",
+                        "mach einen reverse lookup von {ip}",
+                        "gib mir den namen von der i. p. {ip}",
+                        "gib mir die i. p. adresse von {dns}",
+                        "was ist die i. p. adresse von {dns}",
+                        "löse {dns} auf"
+                    ]
+                }
+            ],
+            "types": []
+        }
+    }
 }
