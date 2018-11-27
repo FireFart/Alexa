@@ -32,16 +32,22 @@
                         }
                     ],
                     "samples": [
+                        "ich {message} darf",
                         "frage entscheidungshilfe ob ich {message} darf",
                         "ob die policy es erlaubt zu {message}",
                         "ob es erlaubt ist {message}",
+                        "es erlaubt ist {message}",
                         "ob ich {message} darf",
                         "darf ich {message}",
                         "was sagt die policy zu {message}",
+                        "sagt die policy zu {message}",
                         "ist es erlaubt {message}",
                         "ob ich {message}",
+                        "ich {message}",
                         "ob es {message}",
-                        "wie es aussieht {message}"
+                        "es {message}",
+                        "wie es aussieht {message}",
+                        "es aussieht {message}"
                     ]
                 }
             ],
