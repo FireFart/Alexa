@@ -33,13 +33,37 @@
                         {
                             "name": "ip",
                             "type": "AMAZON.SearchQuery"
+                        },
+                        {
+                            "name": "ip_a",
+                            "type": "AMAZON.NUMBER"
+                        },
+                        {
+                            "name": "ip_b",
+                            "type": "AMAZON.NUMBER"
+                        },
+                        {
+                            "name": "ip_c",
+                            "type": "AMAZON.NUMBER"
+                        },
+                        {
+                            "name": "ip_d",
+                            "type": "AMAZON.NUMBER"
                         }
                     ],
                     "samples": [
                         "welchen namen hat die i. p. {ip}",
+                        "welchen namen hat die i. p. {ip_a} punkt {ip_b} punkt {ip_c} punkt {ip_d}",
                         "welchen hostnamen hat die i. p. {ip}",
+                        "welchen hostnamen hat die i. p. {ip_a} punkt {ip_b} punkt {ip_c} punkt {ip_d}",
+                        "welchen domainnamen hat die i. p. {ip}",
+                        "welchen domainnamen hat die i. p. {ip_a} punkt {ip_b} punkt {ip_c} punkt {ip_d}",
+                        "welchen domainnamen hat {ip}",
+                        "welchen domainnamen hat {ip_a} punkt {ip_b} punkt {ip_c} punkt {ip_d}",
                         "mach einen reverse lookup von {ip}",
+                        "mach einen reverse lookup von {ip_a} punkt {ip_b} punkt {ip_c} punkt {ip_d}",
                         "gib mir den namen von der i. p. {ip}",
+                        "gib mir den namen von der i. p. {ip_a} punkt {ip_b} punkt {ip_c} punkt {ip_d}",
                         "gib mir die i. p. adresse von {dns}",
                         "was ist die i. p. adresse von {dns}",
                         "löse {dns} auf"

@@ -10,7 +10,9 @@ EXCEPTION_MESSAGE = _("Sorry, there was some problem. Please try again.")
 FALLBACK_MESSAGE = _("Sorry, I don't know how to interpret that. Please try again.")
 
 # specific
+DOT = _("dot")
 ANSWER_DNS = _("Domain {} has address {}")
 ANSWER_DNS_FALSE = _("Domain {} does not exist")
 ANSWER_IP = _("I. P. {} has reverse lookup {}")
 ANSWER_IP_FALSE = _("I. P. {} does not have a reverse lookup")
+ANSWER_INVALID_INPUT = _("Could not determine I. P. address or domain name in your query.")

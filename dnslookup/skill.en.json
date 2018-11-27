@@ -33,25 +33,49 @@
                         {
                             "name": "ip",
                             "type": "AMAZON.SearchQuery"
+                        },
+                        {
+                            "name": "ip_a",
+                            "type": "AMAZON.NUMBER"
+                        },
+                        {
+                            "name": "ip_b",
+                            "type": "AMAZON.NUMBER"
+                        },
+                        {
+                            "name": "ip_c",
+                            "type": "AMAZON.NUMBER"
+                        },
+                        {
+                            "name": "ip_d",
+                            "type": "AMAZON.NUMBER"
                         }
                     ],
                     "samples": [
                         "ask d. n. s. lookup to give me the hostname of {ip}",
+                        "ask d. n. s. lookup to give me the hostname of {ip_a} dot {ip_b} dot {ip_c} dot {ip_d}",
                         "ask d. n. s. lookup what's the hostname of {ip}",
+                        "ask d. n. s. lookup what's the hostname of {ip_a} dot {ip_b} dot {ip_c} dot {ip_d}",
                         "ask d. n. s. lookup to give me the i. p. of {dns}",
                         "what's the reverse d.n.s lookup of {ip}",
+                        "what's the reverse d.n.s lookup of {ip_a} dot {ip_b} dot {ip_c} dot {ip_d}",
                         "reverse d.n.s lookup of {ip}",
+                        "reverse d.n.s lookup of {ip_a} dot {ip_b} dot {ip_c} dot {ip_d}",
                         "reverse lookup of {ip}",
+                        "reverse lookup of {ip_a} dot {ip_b} dot {ip_c} dot {ip_d}",
                         "give me the i. p. of {dns}",
                         "give me the hostname of {ip}",
+                        "give me the hostname of {ip_a} dot {ip_b} dot {ip_c} dot {ip_d}",
                         "what's the reverse lookup of {ip}",
+                        "what's the reverse lookup of {ip_a} dot {ip_b} dot {ip_c} dot {ip_d}",
                         "what is the i. p. of {dns}",
-                        "what is the i. p. address of",
                         "what is the address of {dns}",
                         "what is the i. p. address of {dns}",
                         "what's the i. p. address of {dns}",
                         "reverse lookup {ip}",
+                        "reverse lookup {ip_a} dot {ip_b} dot {ip_c} dot {ip_d}",
                         "what's the hostname of {ip}",
+                        "what's the hostname of {ip_a} dot {ip_b} dot {ip_c} dot {ip_d}",
                         "what's the address of {dns}",
                         "do d. n. s. lookup of {dns}",
                         "lookup i. p. of {dns}"

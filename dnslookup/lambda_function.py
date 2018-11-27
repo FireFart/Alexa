@@ -61,9 +61,17 @@ class LookupIntentHandler(AbstractRequestHandler):
         slots = handler_input.request_envelope.request.intent.slots
         dnsSlot = slots["dns"].value
         ipSlot = slots["ip"].value
+        ip1 = slots["ip_a"].value
+        ip2 = slots["ip_b"].value
+        ip3 = slots["ip_c"].value
+        ip4 = slots["ip_d"].value
 
         speech = ""
         if dnsSlot:
+            # replace stuff like "google punkt d. e." in german
+            dnsSlot = dnsSlot.replace(". ", "")
+            # replace stuff like 'google dot com'
+            dnsSlot = dnsSlot.replace(" {} ".format(_(data.DOT)), ".")
             try:
                 addr = socket.gethostbyname(str(dnsSlot))
                 speech = _(data.ANSWER_DNS).format(dnsSlot, addr)
@@ -72,6 +80,8 @@ class LookupIntentHandler(AbstractRequestHandler):
                 logger.info(e)
                 speech = _(data.ANSWER_DNS_FALSE).format(dnsSlot)
         elif ipSlot:
+            # replace stuff like '8 dot 8 dot 8 dot 8 dot 8'
+            ipSlot = ipSlot.replace(" {} ".format(_(data.DOT)), ".")
             try:
                 name = socket.gethostbyaddr(str(ipSlot))[0]
                 speech = _(data.ANSWER_IP).format(ipSlot, name)
@@ -79,11 +89,19 @@ class LookupIntentHandler(AbstractRequestHandler):
                 logger.info("Input: %s", ipSlot)
                 logger.info(e)
                 speech = _(data.ANSWER_IP_FALSE).format(ipSlot)
+        elif ip1 and ip2 and ip3 and ip4:
+            ip = "{}.{}.{}.{}".format(ip1, ip2, ip3, ip4)
+            try:
+                name = socket.gethostbyaddr(ip)[0]
+                speech = _(data.ANSWER_IP).format(ip, name)
+            except Exception as e:
+                logger.info("Input: %s", ip)
+                logger.info(e)
+                speech = _(data.ANSWER_IP_FALSE).format(ip)
         else:
-            raise ValueError("no valid slot given")
+            speech = _(data.ANSWER_INVALID_INPUT)
 
-        handler_input.response_builder.speak(speech).set_should_end_session(True)
-        return handler_input.response_builder.response
+        return handler_input.response_builder.speak(speech).set_should_end_session(True).response
 
 class SessionEndedRequestHandler(AbstractRequestHandler):
     """Handler for skill session end."""
@@ -124,8 +142,7 @@ class ExitIntentHandler(AbstractRequestHandler):
         # type: (HandlerInput) -> Response
         logger.info("In ExitIntentHandler")
 
-        handler_input.response_builder.set_should_end_session(True)
-        return handler_input.response_builder.response
+        return handler_input.response_builder.set_should_end_session(True).response
 
 
 class FallbackIntentHandler(AbstractRequestHandler):
@@ -159,9 +176,7 @@ class CatchAllExceptionHandler(AbstractExceptionHandler):
         logger.info("Original request was %s", handler_input.request_envelope.request)
         _ = handler_input.attributes_manager.request_attributes["_"]
 
-        handler_input.response_builder.speak(_(data.EXCEPTION_MESSAGE)).ask(_(data.EXCEPTION_MESSAGE))
-
-        return handler_input.response_builder.response
+        return handler_input.response_builder.speak(_(data.EXCEPTION_MESSAGE)).set_should_end_session(True).response
 
 
 class LocalizationInterceptor(AbstractRequestInterceptor):

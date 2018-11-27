@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-11-26 17:32+0100\n"
+"POT-Creation-Date: 2018-11-27 20:10+0100\n"
 "PO-Revision-Date: 2018-11-21 15:40+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de_DE\n"
@@ -34,7 +34,7 @@ msgstr "copyright by firefart"
 msgid "Please ask for a DNS name or an I. P. Address"
 msgstr ""
 "Bitte fragen sie nach einen Host Namen oder einer I. P. Adresse. Fragen "
-"sie zum Beispiel: Alexa, gib mir die i. p. adresse von google.at."
+"sie zum Beispiel: Alexa, gib mir die I. P. adresse von google.at."
 
 #: data.py:9
 msgid "Sorry, there was some problem. Please try again."
@@ -47,18 +47,26 @@ msgstr ""
 "erneut."
 
 #: data.py:13
-msgid "Domain {} has address {}"
-msgstr "Die Domain {} hat die I.P. adresse {}"
+msgid "dot"
+msgstr "punkt"
 
 #: data.py:14
+msgid "Domain {} has address {}"
+msgstr "Die Domain {} hat die I. P. adresse {}"
+
+#: data.py:15
 msgid "Domain {} does not exist"
 msgstr "Die domain {} existiert nicht"
 
-#: data.py:15
-msgid "I. P. {} has reverse lookup {}"
-msgstr "Die I. P. {} hat den reverse lookup {}"
-
 #: data.py:16
+msgid "I. P. {} has reverse lookup {}"
+msgstr "Die I. P. {} hat den domain namen {}"
+
+#: data.py:17
 msgid "I. P. {} does not have a reverse lookup"
-msgstr "Die I. P. {} hat keinen reverse lookup"
+msgstr "Die I. P. {} hat keinen domain namen"
+
+#: data.py:18
+msgid "Could not determine I. P. address or domain name in your query."
+msgstr "Ich konnte keine I. P. adresse oder domain in ihrer Anfrage erkennen."
 

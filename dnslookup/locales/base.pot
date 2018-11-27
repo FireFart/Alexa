@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-11-26 17:32+0100\n"
+"POT-Creation-Date: 2018-11-27 20:10+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -42,18 +42,26 @@ msgid "Sorry, I don't know how to interpret that. Please try again."
 msgstr ""
 
 #: data.py:13
-msgid "Domain {} has address {}"
+msgid "dot"
 msgstr ""
 
 #: data.py:14
-msgid "Domain {} does not exist"
+msgid "Domain {} has address {}"
 msgstr ""
 
 #: data.py:15
-msgid "I. P. {} has reverse lookup {}"
+msgid "Domain {} does not exist"
 msgstr ""
 
 #: data.py:16
+msgid "I. P. {} has reverse lookup {}"
+msgstr ""
+
+#: data.py:17
 msgid "I. P. {} does not have a reverse lookup"
+msgstr ""
+
+#: data.py:18
+msgid "Could not determine I. P. address or domain name in your query."
 msgstr ""
 

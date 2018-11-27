@@ -65,8 +65,7 @@ class PercentageIntentHandler(AbstractRequestHandler):
 
         speech = _(data.ANSWER).format(percentageSlot, numberSlot, result)
 
-        handler_input.response_builder.speak(speech).set_should_end_session(True)
-        return handler_input.response_builder.response
+        return handler_input.response_builder.speak(speech).set_should_end_session(True).response
 
 class SessionEndedRequestHandler(AbstractRequestHandler):
     """Handler for skill session end."""
@@ -107,8 +106,7 @@ class ExitIntentHandler(AbstractRequestHandler):
         # type: (HandlerInput) -> Response
         logger.info("In ExitIntentHandler")
 
-        handler_input.response_builder.set_should_end_session(True)
-        return handler_input.response_builder.response
+        return handler_input.response_builder.set_should_end_session(True).response
 
 
 class FallbackIntentHandler(AbstractRequestHandler):
@@ -142,9 +140,7 @@ class CatchAllExceptionHandler(AbstractExceptionHandler):
         logger.info("Original request was %s", handler_input.request_envelope.request)
         _ = handler_input.attributes_manager.request_attributes["_"]
 
-        handler_input.response_builder.speak(_(data.EXCEPTION_MESSAGE)).ask(_(data.EXCEPTION_MESSAGE))
-
-        return handler_input.response_builder.response
+        return handler_input.response_builder.speak(_(data.EXCEPTION_MESSAGE)).set_should_end_session(True).response
 
 
 class LocalizationInterceptor(AbstractRequestInterceptor):
