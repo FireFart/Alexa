@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-11-26 17:33+0100\n"
+"POT-Creation-Date: 2018-11-27 21:22+0100\n"
 "PO-Revision-Date: 2018-11-21 14:05+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de_DE\n"
@@ -47,14 +47,10 @@ msgstr ""
 "erneut."
 
 #: data.py:15
-msgid "images copyright by xkcd https://xkcd.com/"
-msgstr "Grafiken copyright by xkcd https://xkcd.com/"
+msgid "This is a homage to a famous xkcd comic"
+msgstr "Dies ist eine Hommage an einen populären xkcd comic"
 
 #: data.py:16
-msgid "Random Number"
-msgstr "Zufallszahl"
-
-#: data.py:17
 msgid "four"
 msgstr "Die Antwort ist 4"
 

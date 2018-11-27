@@ -12,6 +12,5 @@ FALLBACK_MESSAGE = _("Sorry, I don't know how to interpret that. Please try agai
 # specific data
 # https://xkcd.com/221/
 IMAGE_URL = "https://imgs.xkcd.com/comics/random_number.png"
-IMAGE_COPYRIGHT = _("images copyright by xkcd https://xkcd.com/")
-IMAGE_TITLE = _("Random Number")
+IMAGE_TITLE = _("This is a homage to a famous xkcd comic")
 ANSWER = _("four")

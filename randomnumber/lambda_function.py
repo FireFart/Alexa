@@ -8,11 +8,9 @@ from ask_sdk_core.dispatch_components import (
     AbstractRequestHandler, AbstractExceptionHandler,
     AbstractRequestInterceptor)
 from ask_sdk_core.utils import is_intent_name, is_request_type
-from ask_sdk_core.response_helper import get_plain_text_content
-from ask_sdk_model.interfaces.display.image_size import ImageSize
 from ask_sdk_model.interfaces.display import (
     ImageInstance, Image, RenderTemplateDirective,
-    BackButtonBehavior, BodyTemplate2)
+    BackButtonBehavior, BodyTemplate7)
 
 import data
 
@@ -74,18 +72,15 @@ class RandomIntentHandler(AbstractRequestHandler):
         response_builder = handler_input.response_builder
 
         if supports_display(handler_input):
-            background_img = Image(sources=[ImageInstance(url=data.IMAGE_URL, size=ImageSize.MEDIUM)])
-            primary_text = get_plain_text_content(primary_text=_(data.IMAGE_COPYRIGHT))
-
+            img = Image(sources=[ImageInstance(url=data.IMAGE_URL)])
+            # https://developer.amazon.com/docs/custom-skills/display-template-reference.html
             response_builder.add_directive(
                 RenderTemplateDirective(
-                    BodyTemplate2(
-                        token="Question",
+                    BodyTemplate7(
+                        token="Answer",
                         back_button=BackButtonBehavior.HIDDEN,
-                        #background_image=background_img,
                         title=_(data.IMAGE_TITLE),
-                        image=background_img,
-                        text_content=primary_text)))
+                        image=img)))
 
         return response_builder.speak(_(data.ANSWER)).set_should_end_session(True).response
 
