@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-11-27 21:28+0100\n"
+"POT-Creation-Date: 2018-11-28 13:33+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -30,7 +30,9 @@ msgid "copyright by firefart"
 msgstr ""
 
 #: data.py:8
-msgid "Please ask a policy related question"
+msgid ""
+"Please ask a policy related question like is it allowed to disabled "
+"windows updates?"
 msgstr ""
 
 #: data.py:9
