@@ -72,7 +72,7 @@ class RandomIntentHandler(AbstractRequestHandler):
         response_builder = handler_input.response_builder
 
         if supports_display(handler_input):
-            img = Image(sources=[ImageInstance(url=data.IMAGE_URL)])
+            img = Image(sources=[ImageInstance(url=_(data.IMAGE_URL))])
             # https://developer.amazon.com/docs/custom-skills/display-template-reference.html
             response_builder.add_directive(
                 RenderTemplateDirective(
